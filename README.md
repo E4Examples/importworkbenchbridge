@@ -8,9 +8,9 @@ This example exports a part from an Application.e4xmi into the parent _left_ of 
       <extension
           point="com.remainsoftware.fde.workbench.core.modelimport">
              <model
-                ___modelURI___="platform:/plugin/com.remainsoftware.fde.application/Application.e4xmi"
-                ___modelId___="com.remainsoftware.fde.application.part.0"
-                ___reparentId___="left">
+                modelURI="platform:/plugin/com.remainsoftware.fde.application/Application.e4xmi"
+                modelId="com.remainsoftware.fde.application.part.0"
+                reparentId="left">
             </model>
       </extension>   
 
