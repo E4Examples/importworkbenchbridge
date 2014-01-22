@@ -93,7 +93,16 @@ application into model build on E3 concepts.
          <meta.section type="examples"/>
       </appinfo>
       <documentation>
-         [Enter extension point usage example here.]
+         &lt;pre&gt;
+      &lt;extension
+          point=&quot;com.remainsoftware.fde.workbench.core.modelimport&quot;&gt;
+             &lt;model
+                modelURI=&quot;platform:/plugin/com.remainsoftware.fde.application/Application.e4xmi&quot;
+                modelId=&quot;com.remainsoftware.fde.application.part.0&quot;
+                reparentId=&quot;left&quot;&gt;
+            &lt;/model&gt;
+      &lt;/extension&gt;   
+&lt;/pre&gt;
       </documentation>
    </annotation>
 
