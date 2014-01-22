@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="modelimport" name="Model Import" schema="schema/modelimport.exsd"/>
+   <extension
+         point="com.remainsoftware.fde.workbench.core.modelimport">
+      <model
+            modelId="com.remainsoftware.fde.application.part.0"
+            modelURI="platform:/plugin/com.remainsoftware.fde.application/Application.e4xmi"
+            reparentId="left">
+      </model>
+   </extension>
+</plugin>
