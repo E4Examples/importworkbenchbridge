@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_-glGMIL_EeOuUL8zq1Yw-g" elementId="org.eclipse.e4.ide.application" bindingContexts="_-glGOYL_EeOuUL8zq1Yw-g">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_-glGMYL_EeOuUL8zq1Yw-g" label="com.remainsoftware.pure.e4.app" width="500" height="400">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_-gltRoL_EeOuUL8zq1Yw-g">
+      <children xsi:type="advanced:Perspective" xmi:id="_-gltR4L_EeOuUL8zq1Yw-g">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_-gltSIL_EeOuUL8zq1Yw-g">
+          <children xsi:type="basic:PartStack" xmi:id="_-gltSYL_EeOuUL8zq1Yw-g">
+            <children xsi:type="basic:Part" xmi:id="_-gltSoL_EeOuUL8zq1Yw-g" contributionURI="bundleclass://com.remainsoftware.pure.e4.app/com.remainsoftware.pure.e4.app.parts.SamplePart" label="Sample Part"/>
+          </children>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_-glGSYL_EeOuUL8zq1Yw-g" elementId="menu:org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_-gltQIL_EeOuUL8zq1Yw-g" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_-gltQYL_EeOuUL8zq1Yw-g" label="Open" iconURI="platform:/plugin/com.remainsoftware.pure.e4.app/icons/sample.png" command="_-glGQIL_EeOuUL8zq1Yw-g"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_-gltQoL_EeOuUL8zq1Yw-g" label="Save" iconURI="platform:/plugin/com.remainsoftware.pure.e4.app/icons/save_edit.png" command="_-glGQ4L_EeOuUL8zq1Yw-g"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_-gltQ4L_EeOuUL8zq1Yw-g" label="Quit" command="_-glGPIL_EeOuUL8zq1Yw-g"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_-gltRIL_EeOuUL8zq1Yw-g" label="Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_-gltRYL_EeOuUL8zq1Yw-g" label="About" command="_-glGRoL_EeOuUL8zq1Yw-g"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_-gltS4L_EeOuUL8zq1Yw-g">
+      <children xsi:type="menu:ToolBar" xmi:id="_-gltTIL_EeOuUL8zq1Yw-g" elementId="toolbar:org.eclipse.ui.main.toolbar">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_-gltTYL_EeOuUL8zq1Yw-g" iconURI="platform:/plugin/com.remainsoftware.pure.e4.app/icons/sample.png" command="_-glGQIL_EeOuUL8zq1Yw-g"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_-gltToL_EeOuUL8zq1Yw-g" iconURI="platform:/plugin/com.remainsoftware.pure.e4.app/icons/save_edit.png" command="_-glGQ4L_EeOuUL8zq1Yw-g"/>
+      </children>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_-glGPYL_EeOuUL8zq1Yw-g" elementId="com.remainsoftware.pure.e4.app.handler.quitCommand" contributionURI="bundleclass://com.remainsoftware.pure.e4.app/com.remainsoftware.pure.e4.app.handlers.QuitHandler" command="_-glGPIL_EeOuUL8zq1Yw-g"/>
+  <handlers xmi:id="_-glGQYL_EeOuUL8zq1Yw-g" elementId="com.remainsoftware.pure.e4.app.handler.openCommand" contributionURI="bundleclass://com.remainsoftware.pure.e4.app/com.remainsoftware.pure.e4.app.handlers.OpenHandler" command="_-glGQIL_EeOuUL8zq1Yw-g"/>
+  <handlers xmi:id="_-glGRIL_EeOuUL8zq1Yw-g" elementId="com.remainsoftware.pure.e4.app.handler.saveCommand" contributionURI="bundleclass://com.remainsoftware.pure.e4.app/com.remainsoftware.pure.e4.app.handlers.SaveHandler" command="_-glGQ4L_EeOuUL8zq1Yw-g"/>
+  <handlers xmi:id="_-glGR4L_EeOuUL8zq1Yw-g" elementId="com.remainsoftware.pure.e4.app.handler.aboutCommand" contributionURI="bundleclass://com.remainsoftware.pure.e4.app/com.remainsoftware.pure.e4.app.handlers.AboutHandler" command="_-glGRoL_EeOuUL8zq1Yw-g"/>
+  <bindingTables xmi:id="_-glGPoL_EeOuUL8zq1Yw-g" bindingContext="_-glGOYL_EeOuUL8zq1Yw-g">
+    <bindings xmi:id="_-glGP4L_EeOuUL8zq1Yw-g" keySequence="M1+Q" command="_-glGPIL_EeOuUL8zq1Yw-g"/>
+    <bindings xmi:id="_-glGQoL_EeOuUL8zq1Yw-g" keySequence="M1+O" command="_-glGQIL_EeOuUL8zq1Yw-g"/>
+    <bindings xmi:id="_-glGRYL_EeOuUL8zq1Yw-g" keySequence="M1+S" command="_-glGQ4L_EeOuUL8zq1Yw-g"/>
+    <bindings xmi:id="_-glGSIL_EeOuUL8zq1Yw-g" keySequence="M1+A" command="_-glGRoL_EeOuUL8zq1Yw-g"/>
+  </bindingTables>
+  <rootContext xmi:id="_-glGOYL_EeOuUL8zq1Yw-g" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_-glGOoL_EeOuUL8zq1Yw-g" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_-glGO4L_EeOuUL8zq1Yw-g" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <commands xmi:id="_-glGPIL_EeOuUL8zq1Yw-g" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
+  <commands xmi:id="_-glGQIL_EeOuUL8zq1Yw-g" elementId="com.remainsoftware.pure.e4.app.open" commandName="openCommand"/>
+  <commands xmi:id="_-glGQ4L_EeOuUL8zq1Yw-g" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
+  <commands xmi:id="_-glGRoL_EeOuUL8zq1Yw-g" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <addons xmi:id="_-glGMoL_EeOuUL8zq1Yw-g" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_-glGM4L_EeOuUL8zq1Yw-g" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_-glGNIL_EeOuUL8zq1Yw-g" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_-glGNYL_EeOuUL8zq1Yw-g" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_-glGNoL_EeOuUL8zq1Yw-g" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_-glGN4L_EeOuUL8zq1Yw-g" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_-glGOIL_EeOuUL8zq1Yw-g" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>
