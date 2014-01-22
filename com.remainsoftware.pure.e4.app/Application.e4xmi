@@ -5,7 +5,7 @@
       <children xsi:type="advanced:Perspective" xmi:id="_-gltR4L_EeOuUL8zq1Yw-g">
         <children xsi:type="basic:PartSashContainer" xmi:id="_-gltSIL_EeOuUL8zq1Yw-g">
           <children xsi:type="basic:PartStack" xmi:id="_-gltSYL_EeOuUL8zq1Yw-g">
-            <children xsi:type="basic:Part" xmi:id="_-gltSoL_EeOuUL8zq1Yw-g" contributionURI="bundleclass://com.remainsoftware.pure.e4.app/com.remainsoftware.pure.e4.app.parts.SamplePart" label="Sample Part"/>
+            <children xsi:type="basic:Part" xmi:id="_-gltSoL_EeOuUL8zq1Yw-g" elementId="samplepart" contributionURI="bundleclass://com.remainsoftware.pure.e4.app/com.remainsoftware.pure.e4.app.parts.SamplePart" label="Sample Part"/>
           </children>
         </children>
       </children>

@@ -11,6 +11,10 @@
                name="applicationCSS"
                value="platform:/plugin/com.remainsoftware.pure.e4.app/css/default.css">
          </property>
+         <property
+               name="appName"
+               value="com.remainsoftware.pure.e4.app">
+         </property>
       </product>
    </extension>
 
