@@ -69,12 +69,33 @@ application into model build on E3 concepts.
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="reparentId" type="string" use="required">
+         <attribute name="targetId" type="string" use="required">
             <annotation>
                <documentation>
-                  Points to the ID in the target (IDE) model that is used to reparent the items pointed to by the modeId attribute.
+                  Points to the ID in the target (IDE) model that is used to reference the items pointed to by the modeId attribute.
                </documentation>
             </annotation>
+         </attribute>
+         <attribute name="relationship" use="required">
+            <annotation>
+               <documentation>
+                  Determines where the targetId points to:
+
+&lt;br&gt;
+parent: the imported element is added as a child to the model element with targetId.
+
+&lt;br&gt;
+sibling: the imported element is added to the parent of the model element with targetId.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="parent">
+                  </enumeration>
+                  <enumeration value="sibling">
+                  </enumeration>
+               </restriction>
+            </simpleType>
          </attribute>
       </complexType>
    </element>

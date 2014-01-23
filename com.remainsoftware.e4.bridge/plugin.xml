@@ -7,7 +7,7 @@
       <model
             modelId="samplepart"
             modelURI="platform:/plugin/com.remainsoftware.pure.e4.app/Application.e4xmi"
-            reparentId="left">
+            reparentId="com.remainsoftware.mailapp.mixedmode.perspective">
       </model>
    </extension>
 
