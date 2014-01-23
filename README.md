@@ -18,14 +18,15 @@ The Projects
 ============
 This repo contains three projects. 
 
+### importer
+Provides an extension point with a truly simple mechanism to load E4 code into the E3 based RCP app (IDE or what not). It parsed the extension point en adds the part from the pure e4 application to the e3app.
+
 ### e4app
 Contains a pure e4 app and the model from which you want to extract a part and host it in the IDE or any E3 based RCP application.
 
 ### e3app
-A very simple e3 project (with a view) generated from the template.
+A very simple e3 project (with a view) generated from the template. It uses the extension point in _importer_ to refernce a view from the _e4app_.
 
-### importer
-Provides an extension point with a truly simple mechanism to load E4 code into the E3 based RCP app (IDE or what not). It parsed the extension point en adds the part from the pure e4 application to the e3app.
 
 
 How it works
