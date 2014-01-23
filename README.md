@@ -3,41 +3,60 @@ Import Workbench Bridge
 
 Provides an extension point that enables you to import parts of an application model into another application model (for example the model of the IDE)
 
-This example exports a part from an Application.e4xmi into the parent _left_ of the current model (which in case of the IDE is the left partstack of the IDE JDT Perspective.)
-   <extension
-         point="com.remainsoftware.e4.model.importer.modelimport">
-          <model
-            modelId="com.remainsoftware.fde.application.part.0"
-            modelURI="platform:/plugin/com.remainsoftware.fde.application/Application.e4xmi"
-            reparentId="left">
-      </model>
-   </extension>
-
 
 How to test
 ===========
-Download Luna M4, import these three projects and create a run configuration with -console and run all bundles. Open the Java perspective. Then go to the console, find the _importer_ bundle and start it. The pure e4 view will be extracted from the model and loaded in the IDE.  
+Clone this repo:
 
+git clone https://github.com/E4Examples/importworkbenchbridge.git
+
+
+Download Luna (did not try it with Kepler but it might work), import the three projects and open the manifest of the e3app. Press the run button to run the application. What you will see is that one of the views is imported from the model of the e4app which is pure E4.
 
 
 The Projects
 ============
 This repo contains three projects. 
 
-### pure.e4.app
-Contains a pure e4 app and the model from which you want to extract a part and host it in the IDE.
+### e4app
+Contains a pure e4 app and the model from which you want to extract a part and host it in the IDE or any E3 based RCP application.
 
-### bridge
-Only contains the extension point to indicate which part must be hosted in the IDE
+### e3app
+A very simple e3 project (with a view) generated from the template.
 
 ### importer
-Parses the extension point en adds the part from the pure e4 application to the IDE. Please note that this bundle must be started.
+Provides an extension point with a truly simple mechanism to load E4 code into the E3 based RCP app (IDE or what not). It parsed the extension point en adds the part from the pure e4 application to the e3app.
 
 
 How it works
 ============
 1. The importer bundle reads the extension point and loads the e4xmi file into a secondary application model. 
 2. It creates a temporary EModelService to query this tempory application model for the element with the _modelId_. 
-3. Then it finds from the main model the element with the _reparentId_.
-4. The imported element (and all its children) are added to the _preparentId_ element from the main model.
+3. Then it finds from the main model the element with the _targetId_.
+4. The imported element (and all its children) are added to the _targetId_ element (or its parent) from the main model.
 
+### Example E3 RCP Apllication
+This example exports a part from an Application.e4xmi into the parent of _samplepart_ of the current model.
+
+     <extension
+         point="com.remainsoftware.e4.model.importer.modelimport">
+      <model
+            modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
+            modelId="samplepart"
+            targetId="com.remainsoftware.e3app.view">
+            relationship="sibling"
+     </model>
+    </extension>
+
+### Example IDE
+This example places a part from the e4app Application.e4xmi into the model element _left_ which is a partstack of the Java perspective.
+
+     <extension
+         point="com.remainsoftware.e4.model.importer.modelimport">
+      <model
+            modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
+            modelId="left"
+            targetId="com.remainsoftware.e3app.view">
+            relationship="parent"
+     </model>
+    </extension>
