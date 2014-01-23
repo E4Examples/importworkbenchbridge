@@ -5,7 +5,13 @@
       <children xsi:type="advanced:Perspective" xmi:id="_svg-EoQgEeOWotNEFGCOLQ">
         <children xsi:type="basic:PartSashContainer" xmi:id="_svg-E4QgEeOWotNEFGCOLQ">
           <children xsi:type="basic:PartStack" xmi:id="_svg-FIQgEeOWotNEFGCOLQ">
-            <children xsi:type="basic:Part" xmi:id="_svg-FYQgEeOWotNEFGCOLQ" elementId="samplepart" contributionURI="bundleclass://com.remainsoftware.e4app/com.remainsoftware.e4app.parts.SamplePart" label="Sample Part"/>
+            <children xsi:type="basic:Part" xmi:id="_svg-FYQgEeOWotNEFGCOLQ" elementId="samplepart" contributionURI="bundleclass://com.remainsoftware.e4app/com.remainsoftware.e4app.parts.SamplePart" label="Pure E4">
+              <menus xmi:id="_OMfOoIQiEeOWotNEFGCOLQ" elementId="com.remainsoftware.e4app.menu.0" label="Menu">
+                <tags>ViewMenu</tags>
+                <children xsi:type="menu:DirectMenuItem" xmi:id="_P8elkIQiEeOWotNEFGCOLQ" elementId="com.remainsoftware.e4app.directmenuitem.0" label="GNDN (Goes Nowehere Does Nothing)"/>
+              </menus>
+              <toolbar xmi:id="_E3OIYIQiEeOWotNEFGCOLQ" elementId="com.remainsoftware.e4app.toolbar.0"/>
+            </children>
           </children>
         </children>
       </children>
