@@ -20,6 +20,9 @@ import org.eclipse.ui.PlatformUI;
 
 public class ApplicationModelUtil {
 
+	private static final String SIBLING = "sibling";
+	private static final String CHILD = "child";
+
 	private static ResourceSet resourceSet = new ResourceSetImpl();
 
 	public static MApplication loadModel(String platformURI) {
@@ -31,20 +34,29 @@ public class ApplicationModelUtil {
 		return (MApplication) res.getContents().get(0);
 	}
 
+	/**
+	 * Merge the element <code>id</code> from an application model pointed to by
+	 * <code>uri</code> into the current active application model either as
+	 * {@value #CHILD} of element <code>targetId</code> or as {@value #SIBLING}
+	 * indicated by <code>relationship</code>. .
+	 * 
+	 * @param uri
+	 * @param id
+	 * @param targetId
+	 * @param relationship
+	 */
 	public static void mergeModel(String uri, String id, String reParent, String relationship) {
 
 		MApplication app = loadModel(uri);
-		IEclipseContext context = EclipseContextFactory.create();
-		context.modify(IEventBroker.class, new EventBroker());
-		context.modify(IExtensionRegistry.class, Activator.getService(IExtensionRegistry.class));
-		EModelService service = new ModelServiceImpl(context);
+		EModelService service = createModelService();
+
 		MUIElement muiElement = service.find(reParent, app);
 		IEclipseContext serviceContext = (IEclipseContext) PlatformUI.getWorkbench().getService(
 				IEclipseContext.class);
 		EModelService modelService = serviceContext.get(EModelService.class);
 		MApplication application = serviceContext.get(MApplication.class);
 		MUIElement parentElement = modelService.find(reParent, application);
-		if (relationship.equals("sibling"))
+		if (relationship.equals(SIBLING))
 			parentElement = parentElement.getParent();
 
 		/*
@@ -55,5 +67,20 @@ public class ApplicationModelUtil {
 			MElementContainer cont = (MElementContainer) parentElement;
 			cont.getChildren().add(muiElement);
 		}
+	}
+
+	/**
+	 * Creates a model service just for the purpose of using the find methods.
+	 * The find methods should not be so tightly coupled to an instance of the
+	 * model service.
+	 * 
+	 * @return a freshly created model service
+	 */
+	public static EModelService createModelService() {
+		IEclipseContext context = EclipseContextFactory.create();
+		context.modify(IEventBroker.class, new EventBroker());
+		context.modify(IExtensionRegistry.class, Activator.getService(IExtensionRegistry.class));
+		EModelService service = new ModelServiceImpl(context);
+		return service;
 	}
 }

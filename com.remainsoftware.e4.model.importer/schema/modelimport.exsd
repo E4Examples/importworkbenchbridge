@@ -79,20 +79,20 @@ application into model build on E3 concepts.
          <attribute name="relationship" use="required">
             <annotation>
                <documentation>
-                  Determines where the targetId points to:
+                  Determines the relationship of modelId with targetId. 
 
-&lt;br&gt;
-parent: the imported element is added as a child to the model element with targetId.
+&lt;p/&gt;&lt;p/&gt;
+&lt;b&gt;child&lt;/b&gt;: the imported element is added as a child to the model element with targetId.
 
-&lt;br&gt;
-sibling: the imported element is added to the parent of the model element with targetId.
+&lt;p/&gt;&lt;p/&gt;
+sibling: the imported element is added to the parent of  the model element with targetId.
                </documentation>
             </annotation>
             <simpleType>
                <restriction base="string">
-                  <enumeration value="parent">
-                  </enumeration>
                   <enumeration value="sibling">
+                  </enumeration>
+                  <enumeration value="child">
                   </enumeration>
                </restriction>
             </simpleType>
