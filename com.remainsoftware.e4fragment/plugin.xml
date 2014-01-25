@@ -12,6 +12,7 @@
          point="com.remainsoftware.e4.model.importer.modelimport">
       <model
             elementId="samplepart2"
+            fragment="true"
             modelURI="fragment.e4xmi"
             referenceId="com.remainsoftware.e3app.view"
             relationship="second">

@@ -62,6 +62,13 @@ application into model build on E3 concepts.
                </appinfo>
             </annotation>
          </attribute>
+         <attribute name="fragment" type="boolean" use="default" value="true">
+            <annotation>
+               <documentation>
+                  Determines if the modelURI element points to a fragment model or to an application model.
+               </documentation>
+            </annotation>
+         </attribute>
          <attribute name="elementId" type="string" use="required">
             <annotation>
                <documentation>
@@ -86,11 +93,11 @@ application into model build on E3 concepts.
 &lt;dd&gt;the imported element is added as a direct child of the referenceId. &lt;/dd&gt;
 
 &lt;dt&gt;second&lt;/dt&gt;
-&lt;dd&gt;the imported element is added to the parent of the referenceId. For example to add an MPart (modelId) to the same stack as a ViewPart (referenceId).
+&lt;dd&gt;the imported element is added to the parent of the referenceId. For example to add an MPart (elementId) to the same stack as a ViewPart (referenceId).
 &lt;/dd&gt;
 
 &lt;dt&gt;third&lt;/dt&gt;
-&lt;dd&gt;the imported element is added to the parent of the parent of the referenceId. For example to add an MPartStack (modelId) next to the stack of a referenced ViewPart (referenceId).
+&lt;dd&gt;the imported element is added to the parent of the parent of the referenceId. For example to add an MPartStack (elementId) next to the stack of a referenced ViewPart (referenceId).
 &lt;/dd&gt;
 &lt;/dl&gt;
                </documentation>
