@@ -11,7 +11,7 @@ Clone this repo:
 git clone https://github.com/E4Examples/importworkbenchbridge.git
 
 
-Download Luna (did not try it with Kepler but it might work), import the three projects and open the manifest of the e3app. Press the run button to run the application. What you will see is that one of the views is imported from the model of the e4app which is pure E4.
+Download Luna (did not try it with Kepler but I don't see why it would not work), import the four projects and open the manifest of the e3app. Press the run button to run the application. What you will see is that some of the views are imported from the model of e4app and the fragement of e4fragment which are pure E4.
 
 
 The Projects
