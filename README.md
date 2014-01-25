@@ -43,9 +43,9 @@ This example exports a part from an Application.e4xmi into the parent of _sample
          point="com.remainsoftware.e4.model.importer.modelimport">
       <model
             modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
-            modelId="samplepart"
-            targetId="com.remainsoftware.e3app.view">
-            relationship="sibling"
+            elementId="samplepart"
+            referenceId="com.remainsoftware.e3app.view">
+            relationship="second"
      </model>
     </extension>
 
@@ -56,8 +56,8 @@ This example places a part from the e4app Application.e4xmi into the model eleme
          point="com.remainsoftware.e4.model.importer.modelimport">
       <model
             modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
-            modelId="left"
-            targetId="com.remainsoftware.e3app.view">
-            relationship="parent"
+            elementId="samplepart"
+            referenceId="left">
+            relationship="first"
      </model>
     </extension>
