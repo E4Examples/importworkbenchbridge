@@ -1,5 +1,7 @@
 package com.remainsoftware.e4.model.importer;
 
+import java.io.IOException;
+
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -25,6 +27,13 @@ public class ApplicationModelUtil {
 
 	private static ResourceSet resourceSet = new ResourceSetImpl();
 
+	/**
+	 * Loads the model that <code>platformURI</code> points to. You will receive
+	 * an {@link IOException} if there are problems finding the URI.
+	 * 
+	 * @param platformURI
+	 * @return MApplication the loaded application
+	 */
 	public static MApplication loadModel(String platformURI) {
 		ApplicationPackageImpl.init();
 		URI uri = URI.createURI(platformURI);
@@ -45,27 +54,34 @@ public class ApplicationModelUtil {
 	 * @param targetId
 	 * @param relationship
 	 */
-	public static void mergeModel(String uri, String id, String reParent, String relationship) {
+	public static void mergeModel(String uri, String id, String targetId, String relationship) {
 
-		MApplication app = loadModel(uri);
-		EModelService service = createModelService();
-
-		MUIElement muiElement = service.find(reParent, app);
+		// Get the main model
 		IEclipseContext serviceContext = (IEclipseContext) PlatformUI.getWorkbench().getService(
 				IEclipseContext.class);
 		EModelService modelService = serviceContext.get(EModelService.class);
 		MApplication application = serviceContext.get(MApplication.class);
-		MUIElement parentElement = modelService.find(reParent, application);
-		if (relationship.equals(SIBLING))
-			parentElement = parentElement.getParent();
 
-		/*
-		 * The addition below is just a quick hack and needs more work. For now
-		 * it is enough to, for example, add a part to a partstack
-		 */
-		if (parentElement instanceof MElementContainer) {
-			MElementContainer cont = (MElementContainer) parentElement;
-			cont.getChildren().add(muiElement);
+		// Do only if the id is not in the main model
+		if (modelService.find(id, application) == null) {
+
+			MApplication app = loadModel(uri);
+			EModelService service = createModelService();
+			MUIElement muiElement = service.find(id, app);
+
+			MUIElement parentElement = modelService.find(targetId, application);
+			if (relationship.equals(SIBLING))
+				parentElement = parentElement.getParent();
+
+			/*
+			 * The addition below is just a quick hack and probably needs more
+			 * work. The construct below is enough add a part to a part stack
+			 * and migh.
+			 */
+			if (parentElement instanceof MElementContainer) {
+				MElementContainer cont = (MElementContainer) parentElement;
+				cont.getChildren().add(muiElement);
+			}
 		}
 	}
 
