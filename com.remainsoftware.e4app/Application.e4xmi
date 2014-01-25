@@ -13,6 +13,7 @@
               <toolbar xmi:id="_E3OIYIQiEeOWotNEFGCOLQ" elementId="com.remainsoftware.e4app.toolbar.0"/>
             </children>
           </children>
+          <children xsi:type="basic:PartStack" xmi:id="_2QNa8IX-EeOWotNEFGCOLQ" elementId="partstack2"/>
         </children>
       </children>
     </children>

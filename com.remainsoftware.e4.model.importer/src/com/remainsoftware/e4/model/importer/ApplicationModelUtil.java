@@ -22,12 +22,26 @@ import org.eclipse.ui.PlatformUI;
 
 public class ApplicationModelUtil {
 
-	private static final String FIRST = "first";
-	private static final String SECOND = "second";
-	private static final String THIRD = "third";
-	private static final String FOURTH = "fourth";
+	/**
+	 * The elementId is added as a child to the referenceId
+	 */
+	public static final String FIRST = "first";
 
-	private static ResourceSet resourceSet = new ResourceSetImpl();
+	/**
+	 * The elementId is added to the parent of the referenceId
+	 */
+	public static final String SECOND = "second";
+
+	/**
+	 * The elementId is added to the parent of the parent of the referenceId
+	 */
+	public static final String THIRD = "third";
+
+	/**
+	 * The elementId is added to the parent of the parent of the parent of the
+	 * referenceId
+	 */
+	public static final String FOURTH = "fourth";
 
 	/**
 	 * Loads the model that <code>platformURI</code> points to. You will receive
@@ -37,6 +51,7 @@ public class ApplicationModelUtil {
 	 * @return MApplication the loaded application
 	 */
 	public static MApplication loadModel(String platformURI) {
+		ResourceSet resourceSet = new ResourceSetImpl();
 		ApplicationPackageImpl.init();
 		URI uri = URI.createURI(platformURI);
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
@@ -46,17 +61,27 @@ public class ApplicationModelUtil {
 	}
 
 	/**
-	 * Merge the element <code>id</code> from an application model pointed to by
-	 * <code>uri</code> into the current active application model either as
-	 * {@value #FIRST} of element <code>targetId</code> or as {@value #SECOND}
-	 * indicated by <code>relationship</code>. .
+	 * Merge the element <code>elementId</code> from an application model
+	 * pointed to by <code>platformURI</code> into the current active
+	 * application model either as {@value #FIRST} of element
+	 * <code>referenceId</code> or as {@value #SECOND} indicated by
+	 * <code>relationship</code>. .
 	 * 
-	 * @param uri
-	 * @param id
+	 * @param platformURI
+	 *            the location of the model that contains the element to be
+	 *            imported in the main model in the form of
+	 *            <code>platform:/plugin/plugin.id/path/to/file.e4xmi</code>
+	 * @param elementId
+	 *            the id of the element that must be merged into the main model
 	 * @param referenceId
+	 *            the reference id of the main model where the element must be
+	 *            inserted
 	 * @param relationship
+	 *            the relationship to the reference id ({@link #FIRST},
+	 *            {@link #SECOND}, {@link #THIRD} or {@link #FOURTH}
 	 */
-	public static void mergeModel(String uri, String id, String referenceId, String relationship) {
+	public static void mergeModel(String platformURI, String elementId, String referenceId,
+			String relationship) {
 
 		// Get the main model
 		IEclipseContext serviceContext = (IEclipseContext) PlatformUI.getWorkbench().getService(
@@ -65,11 +90,11 @@ public class ApplicationModelUtil {
 		MApplication application = serviceContext.get(MApplication.class);
 
 		// Do only if the id is not in the main model
-		if (modelService.find(id, application) == null) {
+		if (modelService.find(elementId, application) == null) {
 
-			MApplication app = loadModel(uri);
+			MApplication app = loadModel(platformURI);
 			EModelService service = createModelService();
-			MUIElement muiElement = service.find(id, app);
+			MUIElement muiElement = service.find(elementId, app);
 
 			MUIElement parentElement = modelService.find(referenceId, application);
 			if (relationship.equals(SECOND))

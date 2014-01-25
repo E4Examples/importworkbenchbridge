@@ -62,10 +62,10 @@ application into model build on E3 concepts.
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="modelId" type="string" use="required">
+         <attribute name="elementId" type="string" use="required">
             <annotation>
                <documentation>
-                  Points to the ID in the model associated by modelURI.
+                  The ID of the element that must be imported from the model pointed to by modelURI.
                </documentation>
             </annotation>
          </attribute>

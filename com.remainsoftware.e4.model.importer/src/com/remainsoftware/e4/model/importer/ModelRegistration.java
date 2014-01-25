@@ -14,10 +14,10 @@ public class ModelRegistration implements IStartup {
 				+ ".modelimport");
 		for (IConfigurationElement element : elements) {
 			String uri = element.getAttribute("modelURI");
-			String id = element.getAttribute("modelId");
+			String elementId = element.getAttribute("elementId");
 			String referenceId = element.getAttribute("referenceId");
 			String relationship = element.getAttribute("relationship");
-			ApplicationModelUtil.mergeModel(uri, id, referenceId, relationship);
+			ApplicationModelUtil.mergeModel(uri, elementId, referenceId, relationship);
 		}
 	}
 }

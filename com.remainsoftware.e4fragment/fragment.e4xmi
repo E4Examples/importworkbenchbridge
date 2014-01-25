@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_oDImUIYAEeOWotNEFGCOLQ">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_oDImUYYAEeOWotNEFGCOLQ" featurename="children" parentElementId="partstack2">
+    <elements xsi:type="basic:Part" xmi:id="_oDImUoYAEeOWotNEFGCOLQ" elementId="samplepart2" contributionURI="bundleclass://com.remainsoftware.e4fragment/com.remainsoftware.e4fragment.parts.SamplePart2" label="Pure E4 - 2">
+      <menus xmi:id="_oDImU4YAEeOWotNEFGCOLQ" elementId="com.remainsoftware.e4app.menu.0" label="Menu 2">
+        <tags>ViewMenu</tags>
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_oDImVIYAEeOWotNEFGCOLQ" elementId="com.remainsoftware.e4app.directmenuitem.0" label="GNDN-2 (Again, Goes Nowhere Does Nothing)"/>
+      </menus>
+      <toolbar xmi:id="_oDImVYYAEeOWotNEFGCOLQ" elementId="com.remainsoftware.e4app.toolbar.0"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>
