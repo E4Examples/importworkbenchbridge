@@ -22,8 +22,10 @@ import org.eclipse.ui.PlatformUI;
 
 public class ApplicationModelUtil {
 
-	private static final String SIBLING = "sibling";
-	private static final String CHILD = "child";
+	private static final String FIRST = "first";
+	private static final String SECOND = "second";
+	private static final String THIRD = "third";
+	private static final String FOURTH = "fourth";
 
 	private static ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -46,15 +48,15 @@ public class ApplicationModelUtil {
 	/**
 	 * Merge the element <code>id</code> from an application model pointed to by
 	 * <code>uri</code> into the current active application model either as
-	 * {@value #CHILD} of element <code>targetId</code> or as {@value #SIBLING}
+	 * {@value #FIRST} of element <code>targetId</code> or as {@value #SECOND}
 	 * indicated by <code>relationship</code>. .
 	 * 
 	 * @param uri
 	 * @param id
-	 * @param targetId
+	 * @param referenceId
 	 * @param relationship
 	 */
-	public static void mergeModel(String uri, String id, String targetId, String relationship) {
+	public static void mergeModel(String uri, String id, String referenceId, String relationship) {
 
 		// Get the main model
 		IEclipseContext serviceContext = (IEclipseContext) PlatformUI.getWorkbench().getService(
@@ -69,9 +71,13 @@ public class ApplicationModelUtil {
 			EModelService service = createModelService();
 			MUIElement muiElement = service.find(id, app);
 
-			MUIElement parentElement = modelService.find(targetId, application);
-			if (relationship.equals(SIBLING))
+			MUIElement parentElement = modelService.find(referenceId, application);
+			if (relationship.equals(SECOND))
 				parentElement = parentElement.getParent();
+			else if (relationship.equals(THIRD))
+				parentElement = parentElement.getParent().getParent();
+			else if (relationship.equals(FOURTH))
+				parentElement = parentElement.getParent().getParent().getParent();
 
 			/*
 			 * The addition below is just a quick hack and probably needs more

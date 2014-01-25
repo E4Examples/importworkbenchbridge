@@ -57,10 +57,10 @@
      <extension
          point="com.remainsoftware.e4.model.importer.modelimport">
       <model
-            modelId="samplepart"
             modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
-            relationship="sibling"
-            targetId="com.remainsoftware.e3app.view">
+            modelId="partstack"
+            referenceId="com.remainsoftware.e3app.view"
+            relationship="third">
       </model>
    </extension>
 

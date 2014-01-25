@@ -69,7 +69,7 @@ application into model build on E3 concepts.
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="targetId" type="string" use="required">
+         <attribute name="referenceId" type="string" use="required">
             <annotation>
                <documentation>
                   Points to the ID in the target (IDE) model that is used to reference the items pointed to by the modeId attribute.
@@ -79,20 +79,31 @@ application into model build on E3 concepts.
          <attribute name="relationship" use="required">
             <annotation>
                <documentation>
-                  Determines the relationship of modelId with targetId. 
+                  Determines the relationship of modelId with referenceId. 
+&lt;p&gt;&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;first&lt;/dt&gt;
+&lt;dd&gt;the imported element is added as a direct child of the referenceId. &lt;/dd&gt;
 
-&lt;p/&gt;&lt;p/&gt;
-&lt;b&gt;child&lt;/b&gt;: the imported element is added as a child to the model element with targetId.
+&lt;dt&gt;second&lt;/dt&gt;
+&lt;dd&gt;the imported element is added to the parent of the referenceId. For example to add an MPart (modelId) to the same stack as a ViewPart (referenceId).
+&lt;/dd&gt;
 
-&lt;p/&gt;&lt;p/&gt;
-sibling: the imported element is added to the parent of  the model element with targetId.
+&lt;dt&gt;third&lt;/dt&gt;
+&lt;dd&gt;the imported element is added to the parent of the parent of the referenceId. For example to add an MPartStack (modelId) next to the stack of a referenced ViewPart (referenceId).
+&lt;/dd&gt;
+&lt;/dl&gt;
                </documentation>
             </annotation>
             <simpleType>
                <restriction base="string">
-                  <enumeration value="sibling">
+                  <enumeration value="first">
                   </enumeration>
-                  <enumeration value="child">
+                  <enumeration value="second">
+                  </enumeration>
+                  <enumeration value="third">
+                  </enumeration>
+                  <enumeration value="fourth">
                   </enumeration>
                </restriction>
             </simpleType>
