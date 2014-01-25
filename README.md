@@ -76,7 +76,7 @@ This example imports the view _"samplepart2"_ from a _"fragment.e4xmi"_ into the
          point="com.remainsoftware.e4.model.importer.modelimport">
       <model
             elementId="samplepart2"
-            ___fragment="true"___
+            fragment="true"
             modelURI="fragment.e4xmi"
             referenceId="com.remainsoftware.e3app.view"
             relationship="second">
