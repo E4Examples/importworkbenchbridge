@@ -39,29 +39,47 @@ How it works
 3. Then it finds from the main model the element with the _targetId_.
 4. The imported element (and all its children) are added to the _targetId_ element (or its parent) from the main model.
 
-### Example E3 RCP Apllication
+### Example Import an element of an application model into an E3 RCP Application
 This example imports a part _samplepart_ from an Application.e4xmi into the parent (_"second"_) of _com.remainsoftware.e3app.view_ of the current model.
 
      <extension
          point="com.remainsoftware.e4.model.importer.modelimport">
       <model
             modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
+            fragment="false"
             elementId="samplepart"
             referenceId="com.remainsoftware.e3app.view">
             relationship="second"
      </model>
     </extension>
     
-### Example E3 RCP Application
+### Example Import an element of an application model into an E3 RCP Application
 This example imports the partstack _"partstack"_ from an Application.e4xmi into the parent of the parent ("third") of _com.remainsoftware.e3app.view_ of the current model.
 
      <extension
          point="com.remainsoftware.e4.model.importer.modelimport">
       <model
             modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
+            fragment="false"
             elementId="partstack"
             referenceId="com.remainsoftware.e3app.view"
             relationship="third">
+      </model>
+    </extension>
+    
+    
+### Example Import an element of a fragment model into an E3 RCP Application
+This example imports the view _"samplepart2"_ from a _"fragment.e4xmi"_ into the parent _("second")_ of _com.remainsoftware.e3app.view_ of the current model.
+
+     
+    <extension
+         point="com.remainsoftware.e4.model.importer.modelimport">
+      <model
+            elementId="samplepart2"
+            ___fragment="true"___
+            modelURI="fragment.e4xmi"
+            referenceId="com.remainsoftware.e3app.view"
+            relationship="second">
       </model>
     </extension>
 
@@ -72,6 +90,7 @@ This example places a part from the e4app Application.e4xmi into the model eleme
          point="com.remainsoftware.e4.model.importer.modelimport">
       <model
             modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
+            fragment="false"
             elementId="samplepart"
             referenceId="left">
             relationship="first"
