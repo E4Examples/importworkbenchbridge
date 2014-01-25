@@ -40,7 +40,7 @@ How it works
 4. The imported element (and all its children) are added to the _targetId_ element (or its parent) from the main model.
 
 ### Example E3 RCP Apllication
-This example exports a part from an Application.e4xmi into the parent of _samplepart_ of the current model.
+This example imports a part _samplepart_ from an Application.e4xmi into the parent (_"second"_) of _com.remainsoftware.e3app.view_ of the current model.
 
      <extension
          point="com.remainsoftware.e4.model.importer.modelimport">
@@ -50,6 +50,19 @@ This example exports a part from an Application.e4xmi into the parent of _sample
             referenceId="com.remainsoftware.e3app.view">
             relationship="second"
      </model>
+    </extension>
+    
+### Example E3 RCP Application
+This example imports the partstack _"partstack"_ from an Application.e4xmi into the parent of the parent ("third") of _com.remainsoftware.e3app.view_ of the current model.
+
+     <extension
+         point="com.remainsoftware.e4.model.importer.modelimport">
+      <model
+            modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
+            elementId="partstack"
+            referenceId="com.remainsoftware.e3app.view"
+            relationship="third">
+      </model>
     </extension>
 
 ### Example IDE
