@@ -16,7 +16,7 @@ Download Luna (did not try it with Kepler but it might work), import the three p
 
 The Projects
 ============
-This repo contains three projects. 
+This repo contains four projects. 
 
 ### importer
 Provides an extension point with a truly simple mechanism to load E4 code into the E3 based RCP app (IDE or what not). It parsed the extension point en adds the part from the pure e4 application to the e3app.
