@@ -19,7 +19,7 @@ The Projects
 This repo contains four projects. 
 
 ### importer
-Provides an extension point with a truly simple mechanism to load E4 code into the E3 based RCP app (IDE or what not). It parsed the extension point en adds the part from the pure e4 application to the e3app.
+Provides an extension point with a truly simple mechanism to load E4 code into the E3 based RCP app (IDE or what not). It parses the extension point en adds elements from pure e4 applications into an e3app. You don't need to include or depend on the importer bundle in order to use its extension point.
 
 ### e4app
 Contains a pure e4 app and the model from which you want to extract a part and host it in the IDE or any other E3 based RCP application.
