@@ -3,10 +3,12 @@ package com.remainsoftware.e4.model.importer;
 import java.io.IOException;
 
 import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.internal.workbench.E4XMIResourceFactory;
+import org.eclipse.e4.ui.internal.workbench.ModelAssembler;
 import org.eclipse.e4.ui.internal.workbench.ModelServiceImpl;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.MApplicationElement;
@@ -156,8 +158,7 @@ public class ApplicationModelUtil {
 	 *            {@link #SECOND}, {@link #THIRD} or {@link #FOURTH}
 	 */
 	public static void mergeFragmentElement(String platformURI, String elementId,
-			String referenceId,
-			String relationship) {
+			String referenceId, String relationship) {
 
 		// Get the main model
 		IEclipseContext serviceContext = (IEclipseContext) PlatformUI.getWorkbench().getService(
@@ -208,7 +209,38 @@ public class ApplicationModelUtil {
 		IEclipseContext context = EclipseContextFactory.create();
 		context.modify(IEventBroker.class, new EventBroker());
 		context.modify(IExtensionRegistry.class, Activator.getService(IExtensionRegistry.class));
-		EModelService service = new ModelServiceImpl(context);
-		return service;
+		return new ModelServiceImpl(context);
+	}
+
+	/**
+	 * @param uri
+	 */
+	public static void mergeFragment(String platformURI) {
+		IEclipseContext serviceContext = (IEclipseContext) PlatformUI.getWorkbench().getService(
+				IEclipseContext.class);
+		MApplication application = serviceContext.get(MApplication.class);
+		MModelFragments app = loadFragment(platformURI);
+		for (MModelFragment mfs : app.getFragments()) {
+			/*
+			 * StringModelFragmentImpl impl = (StringModelFragmentImpl) mfs;
+			 * 
+			 * for (MApplicationElement element : mfs.getElements()) { String ff
+			 * = impl.getParentElementId(); mergeFragmentElement(platformURI,
+			 * element.getElementId(), ff, FIRST); }
+			 */
+			mfs.merge(application);
+		}
+	}
+
+	public static void assembleModel() {
+		// Get the main model
+		IEclipseContext serviceContext = (IEclipseContext) PlatformUI.getWorkbench().getService(
+				IEclipseContext.class);
+		EModelService modelService = serviceContext.get(EModelService.class);
+		MApplication application = serviceContext.get(MApplication.class);
+		ModelAssembler modelAssembler = ContextInjectionFactory.make(ModelAssembler.class,
+				serviceContext);
+		modelAssembler.processModel();
+
 	}
 }

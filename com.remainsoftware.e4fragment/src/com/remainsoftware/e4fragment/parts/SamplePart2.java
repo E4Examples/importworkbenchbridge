@@ -56,7 +56,4 @@ public class SamplePart2 {
 	public void save() {
 		dirty.setDirty(false);
 	}
-	
-	
-	
 }
