@@ -24,6 +24,9 @@ public class Processor {
 		final MPart part = (MPart) ModelUtils.findElementById(app, "samplepart2");
 
 		if (part != null) {
+			sync.asyncExec(new Runnable() {
+				@Override
+				public void run() {
 			// partservice.activate(part);
 			BasicFactoryImpl factory = BasicFactoryImpl.init();
 			MPartDescriptor pd = factory.createPartDescriptor();
@@ -31,14 +34,12 @@ public class Processor {
 			pd.setContributionURI(part.getContributionURI().replaceFirst("SamplePart2",
 					"SamplePart3"));
 			pd.setAllowMultiple(true);
+			pd.setContributorURI("com.remainsoftware.e4fragment");
 			app.getDescriptors().add(pd);
 			final MPart part2 = partservice.createPart("samplepart3");
 			part2.setLabel("Created by Processor");
 			MPartStack partstack = (MPartStack) ModelUtils.findElementById(app, "partstack2");
 			partstack.getChildren().add(part2);
-			sync.asyncExec(new Runnable() {
-				@Override
-				public void run() {
 					partservice.activate(part2);
 				}
 			});
