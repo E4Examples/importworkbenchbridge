@@ -3,8 +3,12 @@
 <plugin>
    <extension-point id="modelimport" name="Model Import" schema="schema/modelimport.exsd"/>
    <extension
-         point="org.eclipse.ui.startup">
-      <startup
-            class="com.remainsoftware.e4.model.importer.ModelRegistration"></startup>
+         id="id2"
+         point="org.eclipse.e4.workbench.model">
+      <processor
+            beforefragment="true"
+            class="com.remainsoftware.e4.model.importer.ModelRegistration"
+            compatibility="legacyonly">
+      </processor>
    </extension>
 </plugin>

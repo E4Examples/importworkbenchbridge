@@ -54,22 +54,5 @@
       </menuContribution>
    </extension>
    
-     <extension
-         point="com.remainsoftware.e4.model.importer.modelimport">
-      <model
-            elementId="partstack"
-            fragment="false"
-            modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
-            referenceId="com.remainsoftware.e3app.view"
-            relationship="third">
-      </model>
-      <model
-            elementId="partstack2"
-            fragment="false"
-            modelURI="platform:/plugin/com.remainsoftware.e4app/Application.e4xmi"
-            referenceId="com.remainsoftware.e3app.view"
-            relationship="third">
-      </model>
-   </extension>
 
 </plugin>

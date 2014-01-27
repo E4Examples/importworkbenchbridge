@@ -2,14 +2,14 @@ package com.remainsoftware.e4.model.importer;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.ui.IStartup;
+import org.eclipse.e4.core.di.annotations.Execute;
 
-public class ModelRegistration implements IStartup {
+public class ModelRegistration {
 
-	@Override
+	@Execute
 	public void earlyStartup() {
-		loadWimsImport();
-		ApplicationModelUtil.assembleModel();
+		// loadWimsImport();
+		// ApplicationModelUtil.assembleModel();
 		// loadFragments();
 		// loadProcessors();
 	}

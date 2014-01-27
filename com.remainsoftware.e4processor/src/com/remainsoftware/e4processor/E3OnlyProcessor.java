@@ -13,7 +13,7 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.model.internal.ModelUtils;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 
-public class Processor {
+public class E3OnlyProcessor {
 
 	@Inject
 	private MApplication app;
@@ -21,8 +21,8 @@ public class Processor {
 	@Execute
 	public void execute(@Optional final EPartService partservice, UISynchronize sync) {
 
-		final MPart part5 = (MPart) ModelUtils.findElementById(app, "samplepart3");
-		if (part5 != null)
+		final MPart part4 = (MPart) ModelUtils.findElementById(app, "samplepart4");
+		if (part4 != null)
 			return;
 
 		final MPart part = (MPart) ModelUtils.findElementById(app, "samplepart2");
@@ -31,20 +31,19 @@ public class Processor {
 			sync.asyncExec(new Runnable() {
 				@Override
 				public void run() {
-					// partservice.activate(part);
-					BasicFactoryImpl factory = BasicFactoryImpl.init();
-					MPartDescriptor pd = factory.createPartDescriptor();
-					pd.setElementId("samplepart3");
+			// partservice.activate(part);
+			BasicFactoryImpl factory = BasicFactoryImpl.init();
+			MPartDescriptor pd = factory.createPartDescriptor();
+					pd.setElementId("samplepart4");
 					pd.setContributionURI(part.getContributionURI().replaceFirst("SamplePart2",
-							"SamplePart3"));
-					pd.setAllowMultiple(true);
-					pd.setContributorURI("com.remainsoftware.e4fragment");
-					app.getDescriptors().add(pd);
-					final MPart part2 = partservice.createPart("samplepart3");
-					part2.setLabel("E3 E4 Processor");
-					MPartStack partstack = (MPartStack) ModelUtils.findElementById(app,
-							"partstack2");
-					partstack.getChildren().add(part2);
+							"SamplePart4"));
+			pd.setAllowMultiple(true);
+			pd.setContributorURI("com.remainsoftware.e4fragment");
+			app.getDescriptors().add(pd);
+					final MPart part2 = partservice.createPart("samplepart4");
+					part2.setLabel("E3 only processor");
+			MPartStack partstack = (MPartStack) ModelUtils.findElementById(app, "partstack2");
+			partstack.getChildren().add(part2);
 					partservice.activate(part2);
 				}
 			});

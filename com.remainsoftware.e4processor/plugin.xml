@@ -6,7 +6,27 @@
          point="org.eclipse.e4.workbench.model">
       <processor
             beforefragment="false"
-            class="com.remainsoftware.e4processor.Processor">
+            class="com.remainsoftware.e4processor.E4OnlyProcessor"
+            compatibility="e4only"
+            e3compatibility="e4only">
+      </processor>
+      <processor
+            beforefragment="false"
+            class="com.remainsoftware.e4processor.E3OnlyProcessor"
+            compatibility="legacyonly"
+            e3compatibility="e4only">
+      </processor>
+      <processor
+            beforefragment="false"
+            class="com.remainsoftware.e4processor.Processor"
+            compatibility="legacystep"
+            e3compatibility="e4only">
+      </processor>
+      <processor
+            beforefragment="true"
+            class="com.remainsoftware.e4processor.AddPartStackProcessor"
+            compatibility="legacystep"
+            e3compatibility="e4only">
       </processor>
    </extension>
 

@@ -13,7 +13,7 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.model.internal.ModelUtils;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 
-public class Processor {
+public class E4OnlyProcessor {
 
 	@Inject
 	private MApplication app;
@@ -21,7 +21,7 @@ public class Processor {
 	@Execute
 	public void execute(@Optional final EPartService partservice, UISynchronize sync) {
 
-		final MPart part5 = (MPart) ModelUtils.findElementById(app, "samplepart3");
+		final MPart part5 = (MPart) ModelUtils.findElementById(app, "samplepart5");
 		if (part5 != null)
 			return;
 
@@ -34,14 +34,14 @@ public class Processor {
 					// partservice.activate(part);
 					BasicFactoryImpl factory = BasicFactoryImpl.init();
 					MPartDescriptor pd = factory.createPartDescriptor();
-					pd.setElementId("samplepart3");
+					pd.setElementId("samplepart5");
 					pd.setContributionURI(part.getContributionURI().replaceFirst("SamplePart2",
-							"SamplePart3"));
+							"SamplePart5"));
 					pd.setAllowMultiple(true);
 					pd.setContributorURI("com.remainsoftware.e4fragment");
 					app.getDescriptors().add(pd);
-					final MPart part2 = partservice.createPart("samplepart3");
-					part2.setLabel("E3 E4 Processor");
+					final MPart part2 = partservice.createPart("samplepart5");
+					part2.setLabel("E4 Only Processor");
 					MPartStack partstack = (MPartStack) ModelUtils.findElementById(app,
 							"partstack2");
 					partstack.getChildren().add(part2);
