@@ -9,7 +9,7 @@ public class ModelRegistration implements IStartup {
 	@Override
 	public void earlyStartup() {
 		loadWimsImport();
-		ApplicationModelUtil.assembleModel();
+		// ApplicationModelUtil.assembleModel();
 		// loadFragments();
 		// loadProcessors();
 	}
