@@ -30,7 +30,6 @@ public class AddPartStackProcessor {
 			partstack = org.eclipse.e4.ui.model.application.ui.basic.impl.BasicFactoryImpl.init()
 					.createPartStack();
 			partstack.setElementId("partstack2");
-			partstack.setContributorURI("x.y.z");
 			partstack.setToBeRendered(true);
 			partstack.setVisible(true);
 			part2.getParent().getParent().getChildren().add(partstack);
