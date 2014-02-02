@@ -240,7 +240,7 @@ public class ApplicationModelUtil {
 		MApplication application = serviceContext.get(MApplication.class);
 		ModelAssembler modelAssembler = ContextInjectionFactory.make(ModelAssembler.class,
 				serviceContext);
-		modelAssembler.processModel(0);
+		modelAssembler.processModel();
 
 	}
 }
